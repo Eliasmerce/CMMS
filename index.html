@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMMS Workbook Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>CMMS Workbook Analyzer</h1>
+      <p>
+        Turn your macro-enabled maintenance workbook structure into a practical
+        operational assessment report.
+      </p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>1) Workbook Profile</h2>
+        <label>
+          Workbook name
+          <input id="workbookName" type="text" value="Refinery Maintenance Reporting.xlsm" />
+        </label>
+        <label>
+          Excel version in use
+          <input id="excelVersion" type="text" value="Microsoft 365 / Excel 2021+" />
+        </label>
+        <label>
+          Notes
+          <textarea id="contextNotes" rows="3">Workbook is used for maintenance reporting, downtime tracking, and availability KPI monitoring.</textarea>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>2) Major Sheets</h2>
+        <p class="subtle">Edit the role of each sheet to match your actual workbook.</p>
+        <div id="sheetList"></div>
+        <button id="addSheetBtn" type="button">+ Add Sheet</button>
+      </section>
+
+      <section class="panel">
+        <h2>3) Data Flow</h2>
+        <ol id="flowList"></ol>
+      </section>
+
+      <section class="grid-two">
+        <section class="panel">
+          <h2>4) Risks</h2>
+          <div id="riskList"></div>
+        </section>
+
+        <section class="panel">
+          <h2>5) Improvements</h2>
+          <div id="improvementList"></div>
+        </section>
+      </section>
+
+      <section class="panel actions">
+        <h2>6) Generate Report</h2>
+        <button id="generateBtn" type="button">Generate Functional Report</button>
+        <button id="downloadBtn" type="button" disabled>Download Markdown</button>
+      </section>
+
+      <section class="panel">
+        <h2>Generated Report</h2>
+        <pre id="output">Click “Generate Functional Report” to create your analysis.</pre>
+      </section>
+    </main>
+
+    <template id="sheetTemplate">
+      <article class="sheet-card">
+        <label>
+          Sheet name
+          <input class="sheet-name" type="text" />
+        </label>
+        <label>
+          Purpose
+          <textarea class="sheet-purpose" rows="3"></textarea>
+        </label>
+        <button class="remove-sheet" type="button">Remove</button>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
